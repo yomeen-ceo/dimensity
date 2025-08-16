@@ -1,5 +1,5 @@
 runtime: nodejs20
-service: echoseed
+service: dimensity
 handlers:
   - url: /.*
     script: auto

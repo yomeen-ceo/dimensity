@@ -40,8 +40,8 @@ gcloud config list
 windows + R 開啟 DOS 視窗
 cd \GAE_iCoin\set  GAE-order路徑
 npm run build
-copy app.yaml functions\set\dist
-cd functions\set\dist
+copy app.yaml functions\dimensity\dist
+cd functions\dimensity\dist
 gcloud app deploy -q
 ```
 
