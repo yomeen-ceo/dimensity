@@ -1,9 +1,15 @@
 <template>
-  <q-page class="home-bg q-pa-none flex flex-center">
+  <q-page class="q-pa-none flex flex-center">
     <div class="page-content">
+      <!-- 當寬度小於 500px，顯示提示 -->
+      <div v-if="$q.screen.width <= 800" class="flex flex-center full-width full-height">
+        <div class="text-h6 text-center text-white bg-black q-pa-lg rounded-borders">
+          📱 請使用電腦或橫向裝置觀看
+        </div>
+      </div>
       <!-- 左上角 10% 位置的圖 -->
-      <div class="word-image">
-        <img src="../../statics/products_h1.svg" alt="Word Image" />
+      <div v-else  class="home-bg">
+        <img src="../../statics/products.png" alt="Background" class="bg-img">
       </div>
     </div>
   </q-page>
@@ -36,8 +42,7 @@
   width: 100%;
 
   /* 背景鋪滿不留白 */
-  background: url("../../statics/products.png") no-repeat center center;
-  background-size: cover; /* 若不想裁切可改 contain */
+  background-size: contain; /* 若不想裁切可改 contain 若想裁切可改 cover */
 }
 html, body, #q-app {
   height: 100%;

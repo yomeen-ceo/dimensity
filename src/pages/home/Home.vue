@@ -1,19 +1,40 @@
 <template>
-  <q-page class="home-bg q-pa-none flex flex-center">
+  <q-page>
     <div class="page-content">
-      <!-- 中央 Logo -->
-      <div class="center-logo">
-        <img src="../../statics/home_home_logo.webp" alt="Home Logo" />
+      <!-- 當寬度小於 500px，顯示提示 -->
+      <div v-if="$q.screen.width <= 800" class="home-bg-small q-pa-none flex flex-center full-width full-height">
+        <!-- 中央 Logo -->
+        <div class="center-logo-small">
+          <img src="../../statics/home_home_logo.webp" alt="Home Logo" />
+        </div>
+        <!-- 右下角 70% 位置的圖 -->
+        <div class="word-image-small">
+          <img src="../../statics/home_img_word_1.webp" alt="Word Image" />
+        </div>
+        <!-- 右下角 80% 位置的圖 -->
+        <div class="word-image2-small">
+          <img src="../../statics/home_img_word_2.webp" alt="Word Image" />
+        </div>
+        <!-- 右下角 80% 位置的圖 -->
+        <div class="word-image3-small">
+          <img src="../../statics/small/home_03.gif" alt="Word Image" />
+        </div>
       </div>
-      <!-- 右下角 70% 位置的圖 -->
-      <div class="word-image">
-        <img src="../../statics/home_img_word_1.webp" alt="Word Image" />
+      <!-- 當寬度大於 1200px，顯示原本內容 -->
+      <div v-else class="home-bg q-pa-none flex flex-center">
+        <!-- 中央 Logo -->
+        <div class="center-logo">
+          <img src="../../statics/home_home_logo.webp" alt="Home Logo" />
+        </div>
+        <!-- 右下角 70% 位置的圖 -->
+        <div class="word-image">
+          <img src="../../statics/home_img_word_1.webp" alt="Word Image" />
+        </div>
+        <!-- 右下角 80% 位置的圖 -->
+        <div class="word-image2">
+          <img src="../../statics/home_img_word_2.webp" alt="Word Image" />
+        </div>
       </div>
-      <!-- 右下角 80% 位置的圖 -->
-      <div class="word-image2">
-        <img src="../../statics/home_img_word_2.webp" alt="Word Image" />
-      </div>
-
       <!-- 你的內容 -->
     </div>
   </q-page>
@@ -30,20 +51,38 @@
   width: 20vw;   /* 佔螢幕寬度 10% */
   height: auto;  /* 高度等比例縮放 */
 }
+.center-logo-small {
+  position: absolute;
+  top: 29%;
+  left: 50%;
+  transform: translate(-50%, -70%); /* 原本 -50%，改成 -60% 就會往上移 */
+}
+.center-logo-small img {
+  width: 60vw;   /* 佔螢幕寬度 10% */
+  height: auto;  /* 高度等比例縮放 */
+  max-width: none !important;   /* 解除全域 img 限制 */
+}
 .home-bg {
   /* 高度滿版（行動裝置也穩定） */
   min-height: 100dvh;
   height: 100dvh;
-  @supports not (height: 100dvh) {
-    min-height: 100vh;
-    height: 100vh;
-  }
-
   /* 寬度滿版但不造成水平捲軸 */
   width: 100%;
 
   /* 背景鋪滿不留白 */
   background: url("../../statics/home-background.webp") no-repeat center center;
+  background-size: cover; /* 若不想裁切可改 contain */
+}
+.home-bg-small {
+  /* 高度滿版（行動裝置也穩定） */
+  min-height: 100dvh;
+  height: 100dvh;
+
+  /* 寬度滿版但不造成水平捲軸 */
+  width: 100%;
+
+  /* 背景鋪滿不留白 */
+  background: url("../../statics/small/home-background.svg") no-repeat center center;
   background-size: cover; /* 若不想裁切可改 contain */
 }
 html, body, #q-app {
@@ -82,6 +121,42 @@ img, svg, video, canvas {
 .word-image2 img {
   width: 18vw;  /* 可依需求調整大小 */
   height: auto;
+}
+/* 在寬度70%、高度70%位置的圖 */
+.word-image-small {
+  position: absolute;
+  top: 52%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.word-image-small img {
+  width: 55vw;  /* 可依需求調整大小 */
+  height: auto;
+  max-width: none !important;   /* 解除全域 img 限制 */
+}
+/* 在寬度70%、高度80%位置的圖 */
+.word-image2-small {
+  position: absolute;
+  top: 57%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.word-image2-small img {
+  width: 55vw;  /* 可依需求調整大小 */
+  height: auto;
+  max-width: none !important;   /* 解除全域 img 限制 */
+}
+/* 在寬度70%、高度80%位置的圖 */
+.word-image3-small {
+  position: absolute;
+  top: 82%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.word-image3-small img {
+  width: 95vw;  /* 可依需求調整大小 */
+  height: auto;
+  max-width: none !important;   /* 解除全域 img 限制 */
 }
 </style>
 
