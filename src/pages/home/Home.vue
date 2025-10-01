@@ -2,7 +2,7 @@
   <q-page>
     <div class="page-content">
       <!-- 當寬度小於 500px，顯示提示 -->
-      <div v-if="$q.screen.width <= 800" class="home-bg-small q-pa-none flex flex-center full-width full-height">
+      <div v-if="$q.screen.width <= 800 && $q.screen.width > 0" class="home-bg-small q-pa-none flex flex-center full-width full-height">
         <!-- 中央 Logo -->
         <div class="center-logo-small">
           <img src="../../statics/home_home_logo.webp" alt="Home Logo" />
@@ -16,9 +16,9 @@
           <img src="../../statics/home_img_word_2.webp" alt="Word Image" />
         </div>
         <!-- 右下角 80% 位置的圖 -->
-        <div class="word-image3-small">
-          <img src="../../statics/small/home_03.gif" alt="Word Image" />
-        </div>
+        <!-- <div class="word-image3-small">
+          <img src="../../statics/home_button_about.webp" alt="Word Image" />
+        </div> -->
       </div>
       <!-- 當寬度大於 1200px，顯示原本內容 -->
       <div v-else class="home-bg q-pa-none flex flex-center">
@@ -27,11 +27,11 @@
           <img src="../../statics/home_home_logo.webp" alt="Home Logo" />
         </div>
         <!-- 右下角 70% 位置的圖 -->
-        <div class="word-image">
+        <div class="word-image fade-up">
           <img src="../../statics/home_img_word_1.webp" alt="Word Image" />
         </div>
         <!-- 右下角 80% 位置的圖 -->
-        <div class="word-image2">
+        <div class="word-image2 fade-up delay-1">
           <img src="../../statics/home_img_word_2.webp" alt="Word Image" />
         </div>
       </div>
@@ -41,6 +41,28 @@
 </template>
 
 <style lang="scss" scoped>
+/* === 淡入向上動畫 === */
+@keyframes fadeUp {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -40%); /* 稍微往下 */
+  }
+  100% {
+    opacity: 1;
+    transform: translate(-50%, -50%); /* 回到原本位置 */
+  }
+}
+
+.fade-up {
+  opacity: 0;
+  animation: fadeUp 3s ease-out forwards;
+}
+
+/* 第二張圖可以用延遲來讓它依序出現 */
+.fade-up.delay-1 {
+  animation-delay: 0.8s;
+}
+
 .center-logo {
   position: absolute;
   top: 50%;
@@ -70,7 +92,7 @@
   width: 100%;
 
   /* 背景鋪滿不留白 */
-  background: url("../../statics/home-background.webp") no-repeat center center;
+  background: url("../../statics/home-background.svg") no-repeat center center;
   background-size: cover; /* 若不想裁切可改 contain */
 }
 .home-bg-small {
@@ -82,7 +104,7 @@
   width: 100%;
 
   /* 背景鋪滿不留白 */
-  background: url("../../statics/small/home-background.svg") no-repeat center center;
+  background: url("../../statics/home-background.svg") no-repeat center center;
   background-size: cover; /* 若不想裁切可改 contain */
 }
 html, body, #q-app {

@@ -1,282 +1,209 @@
 <template>
-  <q-page class="home-bg q-pa-none flex flex-center">
-    <div class="page-content">
-      <div v-if="no1">
-        <!-- 中央 Logo -->
-        <div class="center-logo">
-          <img src="../../statics/background-234.svg" alt="Home Logo" />
+  <q-page class="q-pa-none flex flex-center about-page">
+    <div class="about-container">
+
+      <!-- 分段一 -->
+      <section class="about-section">
+        <div class="about-title">
+          <img src="../../statics/news/new_h1.png" alt="最新消息" />
         </div>
-        <!-- 左上角 10% 位置的圖 -->
-        <div class="word-image">
-          <img src="../../statics/new_h1.svg" alt="Word Image" />
+
+        <div class="about-content">
+
+          <!-- ✅ 新增：DM 上方的資訊列 -->
+          <div class="dm-header">
+            <h2 class="dm-title">水廠知性之旅</h2>
+
+            <div class="dm-meta">
+              <div class="dm-meta-item">
+                <img src="../../statics/news/new_icon_02.svg" alt="活動類圖示" class="meta-icon" />
+                <span>活動類</span>
+              </div>
+
+              <div class="dm-meta-item">
+                <img src="../../statics/news/new_icon_03.svg" alt="日期圖示" class="meta-icon" />
+                <span>2025-08-12</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- ✅ 包住 DM 圖片 -->
+          <div class="dm-wrapper">
+            <img src="../../statics/news/DM.jpg" alt="活動DM" class="dm-image" />
+          </div>
         </div>
-        <!-- 右下角 80% 位置的圖 -->
-        <div class="word-image2">
-          <img src="../../statics/about-1_p.svg" alt="Word Image" />
-        </div>
-        <!-- 右下角 80% 位置的圖 -->
-        <div class="word-image3">
-          <img src="../../statics/page_number_1.svg" alt="Word Image" />
-        </div>
-        <!-- 黑色方形按鈕 -->
-        <div class="black-button2" @click="onBlackButtonClick(2)" />
-        <div class="black-button3" @click="onBlackButtonClick(3)" />
-        <div class="black-button4" @click="onBlackButtonClick(2)" />
-      </div>
-      <!-- 你的內容 -->
-      <div v-if="no2">
-        <!-- 中央 Logo -->
-        <div class="center-logo">
-          <img src="../../statics/background-234.svg" alt="Home Logo" />
-        </div>
-        <!-- 左上角 10% 位置的圖 -->
-        <div class="word-image">
-          <img src="../../statics/about-2_h1.svg" alt="Word Image" />
-        </div>
-        <!-- 右下角 80% 位置的圖 -->
-        <div class="word-image2">
-          <img src="../../statics/about-2_p.svg" alt="Word Image" />
-        </div>
-        <!-- 右下角 80% 位置的圖 -->
-        <div class="word-image4">
-          <img src="../../statics/page_number_2.svg" alt="Word Image" />
-        </div>
-        <!-- 黑色方形按鈕 -->
-        <div class="black-button0" @click="onBlackButtonClick(1)" />
-        <div class="black-button1" @click="onBlackButtonClick(1)" />
-        <div class="black-button3" @click="onBlackButtonClick(3)" />
-        <div class="black-button4" @click="onBlackButtonClick(3)" />
-      </div>
-      <div v-if="no3">
-        <!-- 中央 Logo -->
-        <div class="center-logo">
-          <img src="../../statics/background-234.svg" alt="Home Logo" />
-        </div>
-        <!-- 左上角 10% 位置的圖 -->
-        <div class="word-image">
-          <img src="../../statics/about-3_h1.svg" alt="Word Image" />
-        </div>
-        <!-- 右下角 80% 位置的圖 -->
-        <div class="word-image2">
-          <img src="../../statics/about-3_p.svg" alt="Word Image" />
-        </div>
-        <!-- 右下角 80% 位置的圖 -->
-        <div class="word-image5">
-          <img src="../../statics/page_number_3.svg" alt="Word Image" />
-        </div>
-        <!-- 黑色方形按鈕 -->
-        <div class="black-button0" @click="onBlackButtonClick(2)" />
-        <div class="black-button1" @click="onBlackButtonClick(1)" />
-        <div class="black-button2" @click="onBlackButtonClick(2)" />
-      </div>
+      </section>
     </div>
   </q-page>
 </template>
 
 <style lang="scss" scoped>
-.center-logo {
+.dm-wrapper {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  text-align: center;
+  margin-top: 15px;
+}
+
+.dm-wrapper::before {
+  content: "";
   position: absolute;
-  top: 50%;
+  top: -30px; /* ✅ 控制線條距離圖片 */
   left: 50%;
-  transform: translate(-50%, -60%); /* 原本 -50%，改成 -60% 就會往上移 */
+  transform: translateX(-50%);
+  width: 90%; /* ✅ 可依需求調整線條寬度 */
+  height: 1px;
+  background: #25BABA;
+  border-radius: 2px;
+  box-shadow: 0 0 12px rgba(37, 186, 186, 0.6);
 }
-.center-logo img {
-  width: 110vw;
-  max-width: 1000px; /* 視需求限制最大寬度 */
+
+.dm-image {
+  max-width: 80%;
   height: auto;
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.35); /* 柔和陰影 */
-  border-radius: 50px; /* 導角，讓白邊不那麼突兀 */
+  border-radius: 20px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
 }
-.home-bg {
-  /* 高度滿版（行動裝置也穩定） */
-  min-height: 100dvh;
-  height: 100dvh;
-  @supports not (height: 100dvh) {
-    min-height: 100vh;
-    height: 100vh;
+.about-page {
+  background: url("../../statics/contact/about-background_about.svg") no-repeat center top;
+  background-size: cover;
+  min-height: 100vh;
+}
+
+.about-container {
+  width: 100%;
+  max-width: 1555px;
+  padding: 4vh 4vw;
+  display: flex;
+  flex-direction: column;
+  gap: 6vh;
+  align-items: center;
+}
+
+/* 標題圖 */
+.about-title {
+  position: relative;
+  left: calc(-4vw);      /* ✅ 把 container 的 padding 推回去，貼齊螢幕左側 */
+  margin-left: 0;        /* ✅ 移除原本的 margin */
+  width: auto;
+}
+
+.about-title img {
+  height: 90px;
+  width: auto;
+  margin-bottom: 34px;
+  display: block;
+}
+
+.about-content {
+  background: rgba(255, 255, 255, 0.7);
+  border-radius: 30px;
+  padding: 10px 100px;       /* ✅ 內距保留 */
+  width: 80%;                /* ✅ 改用 70%，讓白框與螢幕左右距離更大 */
+  max-width: 1500px;          /* ✅ 限制最大寬度，讓它不會太寬 */
+  margin: 50px auto;         /* ✅ 修正：auto 可讓它水平置中 */
+  box-shadow: 0 0 30px rgba(37, 186, 186, 0.4);
+  backdrop-filter: blur(6px);
+  text-align: center;
+}
+
+.dm-header {
+  text-align: center;
+  margin-bottom: 32px;
+
+  .dm-title {
+    font-size: clamp(28px, 3vw, 48px); /* ✅ 標題自適應 */
+    font-weight: 700;
+    color: #18254C;
+    margin-bottom: 16px;
   }
 
-  /* 寬度滿版但不造成水平捲軸 */
-  width: 100%;
+  .dm-meta {
+    display: flex;
+    justify-content: center;
+    gap: 40px; /* ✅ 兩組資訊之間的間距 */
+    font-size: clamp(16px, 2vw, 24px);
+    color: #333;
+  }
 
-  /* 背景鋪滿不留白 */
-  background: url("../../statics/home-background.webp") no-repeat center center;
-  background-size: cover; /* 若不想裁切可改 contain */
+  .dm-meta-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .meta-icon {
+    width: clamp(20px, 2.5vw, 32px);
+    height: auto;
+  }
 }
-html, body, #q-app {
-  height: 100%;
-  margin: 0;
-  padding: 0;
-  overflow-x: hidden;  /* 防止任何水平捲軸 */
+.dm-image {
+  display: block;
+  margin: 0 auto;              /* ✅ 圖片水平置中 */
+  max-width: 80%;              /* ✅ 限制最大寬度為白色底框的 80%（可調整） */
+  height: auto;
+  border-radius: 20px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.15);
 }
 
-.q-layout, .q-page-container, .q-page {
-  min-height: 100%;
-}
+/* ✅ 小螢幕自適應 */
+@media (max-width: 600px) {
+  .about-title img {
+    height: 60px;              /* ✅ 標題縮小 */
+    margin-bottom: 20px;
+  }
 
-img, svg, video, canvas {
-  max-width: 100%;
-  display: block;      /* 防止 inline 元素造成的細微縫隙 */
-}
-/* 在寬度70%、高度70%位置的圖 */
-.word-image {
-  position: absolute;
-  top: 10%;
-  left: 5.25%;
-  transform: translate(-50%, -25%);
-}
-.word-image img {
-  width: 12vw;  /* 可依需求調整大小 */
-  height: auto;
-}
-/* 在寬度70%、高度80%位置的圖 */
-.word-image2 {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -63%);
-}
-.word-image2 img {
-  width: 110vw;
-  max-width: 1000px; /* 視需求限制最大寬度 */
-  height: auto;
-}
-.word-image3 {
-  position: absolute;
-  top: 73%;
-  left: 50%;
-  transform: translate(-50%, -35%);
-}
-.word-image3 img {
-  width: 25vw;
-  max-width: 250px; /* 視需求限制最大寬度 */
-  height: auto;
-}
-.word-image4 {
-  position: absolute;
-  top: 66.8%;
-  left: 48.9%;
-  transform: translate(-50%, -35%);
-}
-.word-image4 img {
-  width: 25vw;
-  max-width: 250px; /* 視需求限制最大寬度 */
-  height: auto;
-}
-.word-image5 {
-  position: absolute;
-  top: 68.1%;
-  left: 47.6%;
-  transform: translate(-50%, -35%);
-}
-.word-image5 img {
-  width: 20.9vw;
-  max-width: 209px; /* 視需求限制最大寬度 */
-  height: auto;
-}
-.black-button0 {
-  position: absolute;
-  top: 59%;     /* 和 word-image3 一樣的位置 */
-  left: 41.5%;
-  transform: translate(-50%, 80px); /* 位於圖片下方 80px，可依需求調整 */
-  width: 60px;
-  height: 60px;
-  background-color: transparent;
-  color: transparent;
-  font-size: 16px;
-  text-align: center;
-  line-height: 60px; /* 讓文字垂直置中 */
-  border-radius: 8px; /* 方形但有點圓角，想要完全方形可改 0 */
-  cursor: pointer;
-}
-.black-button1 {
-  position: absolute;
-  top: 59%;     /* 和 word-image3 一樣的位置 */
-  left: 45.5%;
-  transform: translate(-50%, 80px); /* 位於圖片下方 80px，可依需求調整 */
-  width: 60px;
-  height: 60px;
-  background-color: transparent;
-  color: transparent;
-  font-size: 16px;
-  text-align: center;
-  line-height: 60px; /* 讓文字垂直置中 */
-  border-radius: 8px; /* 方形但有點圓角，想要完全方形可改 0 */
-  cursor: pointer;
-}
-.black-button2 {
-  position: absolute;
-  top: 59%;     /* 和 word-image3 一樣的位置 */
-  left: 49.5%;
-  transform: translate(-50%, 80px); /* 位於圖片下方 80px，可依需求調整 */
-  width: 60px;
-  height: 60px;
-  background-color: transparent;
-  color: transparent;
-  font-size: 16px;
-  text-align: center;
-  line-height: 60px; /* 讓文字垂直置中 */
-  border-radius: 8px; /* 方形但有點圓角，想要完全方形可改 0 */
-  cursor: pointer;
-}
-.black-button3 {
-  position: absolute;
-  top: 59%;     /* 和 word-image3 一樣的位置 */
-  left: 53.5%;
-  transform: translate(-50%, 80px); /* 位於圖片下方 80px，可依需求調整 */
-  width: 60px;
-  height: 60px;
-  background-color: transparent;
-  color: transparent;
-  font-size: 16px;
-  text-align: center;
-  line-height: 60px; /* 讓文字垂直置中 */
-  border-radius: 8px; /* 方形但有點圓角，想要完全方形可改 0 */
-  cursor: pointer;
-}
-.black-button4 {
-  position: absolute;
-  top: 59%;     /* 和 word-image3 一樣的位置 */
-  left: 57.5%;
-  transform: translate(-50%, 80px); /* 位於圖片下方 80px，可依需求調整 */
-  width: 60px;
-  height: 60px;
-  background-color: transparent;
-  color: transparent;
-  font-size: 16px;
-  text-align: center;
-  line-height: 60px; /* 讓文字垂直置中 */
-  border-radius: 8px; /* 方形但有點圓角，想要完全方形可改 0 */
-  cursor: pointer;
+  .about-content {
+    width: 90%;               /* ✅ 白色底框縮小、左右距離變大 */
+    padding: 20px 30px;       /* ✅ 內部空間縮小 */
+    border-radius: 20px;
+    margin: 30px auto;
+  }
+
+  .dm-header {
+    margin-bottom: 20px;
+
+    .dm-title {
+      font-size: 22px;         /* ✅ 標題縮小 */
+      margin-bottom: 12px;
+    }
+
+    .dm-meta {
+      flex-direction: column; /* ✅ 垂直排列 */
+      gap: 10px;
+      font-size: 16px;
+    }
+
+    .dm-meta-item {
+      justify-content: center;
+    }
+
+    .meta-icon {
+      width: 24px;
+    }
+  }
+
+  .dm-wrapper::before {
+    width: 80%;              /* ✅ 線條也縮短 */
+    top: -20px;
+  }
+
+  .dm-image {
+    max-width: 95%;          /* ✅ 圖片寬度縮小 */
+    border-radius: 12px;
+  }
 }
 </style>
 
 <script>
 export default {
-  name: 'PageSet',
+  name: 'PageContact',
   data () {
     return {
-      no1: true,
-      no2: false,
-      no3: false
     }
   },
   methods: {
-    onBlackButtonClick (val) {
-      if (val === 1) {
-        this.no1 = true
-        this.no2 = false
-        this.no3 = false
-      } else if (val === 2) {
-        this.no1 = false
-        this.no2 = true
-        this.no3 = false
-      } else if (val === 3) {
-        this.no1 = false
-        this.no2 = false
-        this.no3 = true
-      }
-    }
   },
   mounted () {
   }

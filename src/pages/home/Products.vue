@@ -9,7 +9,7 @@
       </div>
       <!-- 左上角 10% 位置的圖 -->
       <div v-else  class="home-bg">
-        <img src="../../statics/products.png" alt="Background" class="bg-img">
+        <img src="../../statics/product.svg" alt="Background" class="bg-img">
       </div>
     </div>
   </q-page>

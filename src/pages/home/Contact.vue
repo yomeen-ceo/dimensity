@@ -1,530 +1,142 @@
 <template>
-  <q-page>
-    <div class="page-content">
-      <!-- 當寬度小於 500px，顯示提示 -->
-      <div v-if="$q.screen.width <= 800" class="home-bg-small q-pa-none flex flex-center full-width full-height">
-        <!-- 中央 Logo -->
-        <div class="center-logo-small">
-          <img src="../../statics/home_home_logo.webp" alt="Home Logo" />
+  <q-page class="q-pa-none flex flex-center about-page">
+    <div class="about-container">
+
+      <!-- 分段一 -->
+      <section class="about-section">
+        <div class="about-title">
+          <img src="../../statics/contact/about-01.svg" alt="關於公司" />
         </div>
-      </div>
-      <!-- 當寬度小於 1200px，顯示原本內容 -->
-      <div v-else-if="$q.screen.width <= 1200">
-        <div v-if="no1">
-          <!-- 中央 Logo -->
-          <div class="center-logo-1200">
-            <img src="../../statics/background-234.svg" alt="Home Logo" />
-          </div>
-          <!-- 左上角 10% 位置的圖 -->
-          <div class="word-image-1200">
-            <img src="../../statics/about_h1.svg" alt="Word Image" />
-          </div>
-          <!-- 右下角 80% 位置的圖 -->
-          <div class="word-image2-1200">
-            <img src="../../statics/about-1_p.svg" alt="Word Image" />
-          </div>
-          <!-- 右下角 80% 位置的圖 -->
-          <div class="word-image3-1200">
-            <img src="../../statics/page_number_1.svg" alt="Word Image" />
-          </div>
-          <!-- 黑色方形按鈕 -->
-          <div class="black-button2-1200" @click="onBlackButtonClick(2)" />
-          <div class="black-button3-1200" @click="onBlackButtonClick(3)" />
-          <div class="black-button4-1200" @click="onBlackButtonClick(2)" />
+        <div class="about-content">
+          <p>
+            創辦「旭能生技科技股份有限公司」、「福展生物科技有限公司」、「群寶基因科技有限公司」與「天璣生技科技股份有限公司」成立企業集團，經營保健食品、醫療器材⋯等相關產業，員工包含醫檢師、保健食品專家，並匯集國內外傑出學者專家，並匯集國內外傑出生物醫學、化工材料、機械工程碩博士及多個國際知名研究機構…等專業人才合作，開發突破性新技術與先進研發設備。
+          </p>
+          <p>
+            集團旗下「福展生物科技有限公司」健檢中心平均每年健檢超過12萬人次，由此健康大數據得知各種慢性病、癌症及新冠狀病毒，正快速侵蝕著人類，而我們致力於各種黑科技發明及知識分享給民眾！
+          </p>
+          <p>
+            集團科研團隊歷經十餘年之專研，自2008年起至2025年陸續和美國航太工程團隊、台灣大學食品研究所、台北醫學大學生藥研究所、陽明交通大學、浙江工業大學⋯等，並技轉研發商品獲得許多專利製程，尤其是運用航太高科技溶氧技術，突破氣、液不相溶之物理極限，成功的將氧離子包覆於水分子中，使「氧」不易跑掉，開發出世界最佳的「高登氧飲用水」並榮獲台灣、日本、大陸專利及全球首創航太高科技的高濃度溶氧水，世界公認具高能量的台灣埔里好水結合，讓我們隨時都可以喝到甘甜、清純的高溶氧飲用水，滿足我們運動、美麗、活力與健康的需求！
+          </p>
         </div>
-        <!-- 你的內容 -->
-        <div v-if="no2">
-          <!-- 中央 Logo -->
-          <div class="center-logo-1200">
-            <img src="../../statics/background-234.svg" alt="Home Logo" />
-          </div>
-          <!-- 左上角 10% 位置的圖 -->
-          <div class="word-image-1200">
-            <img src="../../statics/about-2_h1.svg" alt="Word Image" />
-          </div>
-          <!-- 右下角 80% 位置的圖 -->
-          <div class="word-image2-1200">
-            <img src="../../statics/about-2_p.svg" alt="Word Image" />
-          </div>
-          <!-- 右下角 80% 位置的圖 -->
-          <div class="word-image4-1200">
-            <img src="../../statics/page_number_2.svg" alt="Word Image" />
-          </div>
-          <!-- 黑色方形按鈕 -->
-          <div class="black-button0-1200" @click="onBlackButtonClick(1)" />
-          <div class="black-button1-1200" @click="onBlackButtonClick(1)" />
-          <div class="black-button3-1200" @click="onBlackButtonClick(3)" />
-          <div class="black-button4-1200" @click="onBlackButtonClick(3)" />
+      </section>
+
+      <!-- 分段二 -->
+      <section class="about-section">
+        <div class="about-title">
+          <img src="../../statics/contact/about-02.svg" alt="企業願景" />
         </div>
-        <div v-if="no3">
-          <!-- 中央 Logo -->
-          <div class="center-logo-1200">
-            <img src="../../statics/background-234.svg" alt="Home Logo" />
-          </div>
-          <!-- 左上角 10% 位置的圖 -->
-          <div class="word-image-1200">
-            <img src="../../statics/about-3_h1.svg" alt="Word Image" />
-          </div>
-          <!-- 右下角 80% 位置的圖 -->
-          <div class="word-image2-1200">
-            <img src="../../statics/about-3_p.svg" alt="Word Image" />
-          </div>
-          <!-- 右下角 80% 位置的圖 -->
-          <div class="word-image5-1200">
-            <img src="../../statics/page_number_3.svg" alt="Word Image" />
-          </div>
-          <!-- 黑色方形按鈕 -->
-          <div class="black-button0-1200" @click="onBlackButtonClick(2)" />
-          <div class="black-button1-1200" @click="onBlackButtonClick(1)" />
-          <div class="black-button2-1200" @click="onBlackButtonClick(2)" />
+        <div class="about-content">
+          <p>
+            以「健康、美麗與幸福」為品牌核心價值 （OXYGOLDEN），我們的價值宣言：「精準科技，平衡健康」，同時象徵著讓世界變得更美好、更先進、更有意義，成為引領全球自然健康革命的先驅，透過創新與利他精神，啟動幸福的美好的未來人生。
+          </p>
+          <p>
+            透過精準科技與智能大數據分析，提供個人健康的評估，促進健康生活方式的普及與發展，並跨領域促進醫療、科技、營養⋯等等的體驗，並讓更多的專家與學者參與合作，共同探討創新改善方案，並以「精準科技大健康」為人類找回美好的樂活人生為宗旨。
+          </p>
         </div>
-      </div>
-      <!-- 當寬度大於 1200px，顯示原本內容 -->
-      <div v-else class="home-bg q-pa-none flex flex-center">
-        <div v-if="no1">
-          <!-- 中央 Logo -->
-          <div class="center-logo">
-            <img src="../../statics/background-234.svg" alt="Home Logo" />
-          </div>
-          <!-- 左上角 10% 位置的圖 -->
-          <div class="word-image">
-            <img src="../../statics/about_h1.svg" alt="Word Image" />
-          </div>
-          <!-- 右下角 80% 位置的圖 -->
-          <div class="word-image2">
-            <img src="../../statics/about-1_p.svg" alt="Word Image" />
-          </div>
-          <!-- 右下角 80% 位置的圖 -->
-          <div class="word-image3">
-            <img src="../../statics/page_number_1.svg" alt="Word Image" />
-          </div>
-          <!-- 黑色方形按鈕 -->
-          <div class="black-button2" @click="onBlackButtonClick(2)" />
-          <div class="black-button3" @click="onBlackButtonClick(3)" />
-          <div class="black-button4" @click="onBlackButtonClick(2)" />
+      </section>
+
+      <!-- 分段三 -->
+      <section class="about-section">
+        <div class="about-title">
+          <img src="../../statics/contact/about-03.svg" alt="核心理念" />
         </div>
-        <!-- 你的內容 -->
-        <div v-if="no2">
-          <!-- 中央 Logo -->
-          <div class="center-logo">
-            <img src="../../statics/background-234.svg" alt="Home Logo" />
-          </div>
-          <!-- 左上角 10% 位置的圖 -->
-          <div class="word-image">
-            <img src="../../statics/about-2_h1.svg" alt="Word Image" />
-          </div>
-          <!-- 右下角 80% 位置的圖 -->
-          <div class="word-image2">
-            <img src="../../statics/about-2_p.svg" alt="Word Image" />
-          </div>
-          <!-- 右下角 80% 位置的圖 -->
-          <div class="word-image4">
-            <img src="../../statics/page_number_2.svg" alt="Word Image" />
-          </div>
-          <!-- 黑色方形按鈕 -->
-          <div class="black-button0" @click="onBlackButtonClick(1)" />
-          <div class="black-button1" @click="onBlackButtonClick(1)" />
-          <div class="black-button3" @click="onBlackButtonClick(3)" />
-          <div class="black-button4" @click="onBlackButtonClick(3)" />
+        <div class="about-content">
+          <p>1. 精準科學找回自然的平衡健康。</p>
+          <p>2. 以利他精神創造幸福的未來。</p>
+          <p>3. 翻轉思維，回歸本質的健康。</p>
+          <p>4. 重啟生命能量，重建地球共生系統。</p>
+          <p>5. 創新改變，為人類開啟希望。</p>
         </div>
-        <div v-if="no3">
-          <!-- 中央 Logo -->
-          <div class="center-logo">
-            <img src="../../statics/background-234.svg" alt="Home Logo" />
-          </div>
-          <!-- 左上角 10% 位置的圖 -->
-          <div class="word-image">
-            <img src="../../statics/about-3_h1.svg" alt="Word Image" />
-          </div>
-          <!-- 右下角 80% 位置的圖 -->
-          <div class="word-image2">
-            <img src="../../statics/about-3_p.svg" alt="Word Image" />
-          </div>
-          <!-- 右下角 80% 位置的圖 -->
-          <div class="word-image5">
-            <img src="../../statics/page_number_3.svg" alt="Word Image" />
-          </div>
-          <!-- 黑色方形按鈕 -->
-          <div class="black-button0" @click="onBlackButtonClick(2)" />
-          <div class="black-button1" @click="onBlackButtonClick(1)" />
-          <div class="black-button2" @click="onBlackButtonClick(2)" />
-        </div>
-      </div>
+      </section>
+
     </div>
   </q-page>
 </template>
 
 <style lang="scss" scoped>
-.page-content {
-  position: relative;
-  width: 100%;
-  height: 100vh; // 撐滿整個螢幕高度
+.about-page {
+  background: url("../../statics/contact/about-background_about.svg") no-repeat center top;
+  background-size: cover;
+  min-height: 100vh;
 }
-.page-content img {
-  max-width: 100%;
-  height: auto;
+
+.about-container {
+  width: 100%;
+  max-width: 1555px;
+  padding: 4vh 4vw;
+  display: flex;
+  flex-direction: column;
+  gap: 6vh;
+  align-items: center; /* ✅ 讓所有 section 水平對齊置中 */
+}
+
+/* 標題圖 */
+.about-title {
+  align-self: flex-start; /* ✅ 讓標題不受 container 的左右 auto 置中影響 */
+  margin-left: -4vw;      /* ✅ 把 padding 推回去，讓它貼齊螢幕左邊 */
+}
+
+.about-title img {
+  height: 90px;
+  width: auto;
+  margin-bottom: 24px;
   display: block;
 }
-.center-logo {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -60%); /* 原本 -50%，改成 -60% 就會往上移 */
+
+/* 每一段內容 */
+.about-content {
+  background: rgba(255, 255, 255, 0.7);
+  border-radius: 63.5px;
+  padding: 50px 80px;
+  width: 80%;          /* ✅ 改用百分比寬度，所有框保持一致 */
+  max-width: 1000px;   /* ✅ 上限 */
+  min-width: 600px;    /* ✅ 下限（避免太窄） */
+  margin: 0 auto;
+  font-size: 16pt;
+  color: #18254C;
+  line-height: 1.7;
+  box-shadow: 0 0 30px rgba(37, 186, 186, 0.5); /* 陰影羽化 */
+  backdrop-filter: blur(6px);
 }
-.center-logo img {
-  width: 110vw;
-  max-width: 1000px; /* 視需求限制最大寬度 */
-  height: auto;
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.35); /* 柔和陰影 */
-  border-radius: 50px; /* 導角，讓白邊不那麼突兀 */
+
+.about-section {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* ✅ 保證標題和文字框置中 */
 }
-.center-logo-small {
-  position: absolute;
-  top: 12%;
-  left: 50%;
-  transform: translate(-50%, -70%); /* 原本 -50%，改成 -60% 就會往上移 */
-}
-.center-logo-small img {
-  width: 37vw;   /* 佔螢幕寬度 10% */
-  height: auto;  /* 高度等比例縮放 */
-  max-width: none !important;   /* 解除全域 img 限制 */
-}
-.home-bg {
-  /* 高度滿版（行動裝置也穩定） */
-  min-height: 100dvh;
-  height: 100dvh;
-  @supports not (height: 100dvh) {
-    min-height: 100vh;
-    height: 100vh;
+
+/* 響應式：小螢幕適配 */
+@media (max-width: 600px) {
+  .about-container {
+    padding: 20px;
+    gap: 3vh; /* ✅ 間距縮小 */
   }
 
-  /* 寬度滿版但不造成水平捲軸 */
-  width: 100%;
+  .about-title img {
+    height: clamp(50px, 12vw, 80px); /* ✅ 標題縮小，但不會太小 */
+    margin-bottom: 12px;
+  }
 
-  /* 背景鋪滿不留白 */
-  background: url("../../statics/home-background.webp") no-repeat center center;
-  background-size: cover; /* 若不想裁切可改 contain */
-}
-.home-bg-small {
-  /* 高度滿版（行動裝置也穩定） */
-  min-height: 100dvh;
-  height: 100dvh;
-
-  /* 寬度滿版但不造成水平捲軸 */
-  width: 100%;
-
-  /* 背景鋪滿不留白 */
-  background: url("../../statics/small/home-background.svg") no-repeat center center;
-  background-size: cover; /* 若不想裁切可改 contain */
-}
-html, body, #q-app {
-  height: 100%;
-  margin: 0;
-  padding: 0;
-  overflow-x: hidden;  /* 防止任何水平捲軸 */
-}
-
-.q-layout, .q-page-container, .q-page {
-  min-height: 100%;
-}
-
-img, svg, video, canvas {
-  max-width: 100%;
-  display: block;      /* 防止 inline 元素造成的細微縫隙 */
-}
-/* 在寬度70%、高度70%位置的圖 */
-.word-image {
-  position: absolute;
-  top: 10%;
-  left: 5%;
-  transform: translate(-50%, -25%);
-}
-.word-image img {
-  width: 12vw;  /* 可依需求調整大小 */
-  height: auto;
-}
-/* 在寬度70%、高度80%位置的圖 */
-.word-image2 {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -63%);
-}
-.word-image2 img {
-  width: 110vw;
-  max-width: 1000px; /* 視需求限制最大寬度 */
-  height: auto;
-}
-.word-image3 {
-  position: absolute;
-  top: 73%;
-  left: 50%;
-  transform: translate(-50%, -35%);
-}
-.word-image3 img {
-  width: 25vw;
-  max-width: 250px; /* 視需求限制最大寬度 */
-  height: auto;
-}
-.word-image4 {
-  position: absolute;
-  top: 66.8%;
-  left: 48.9%;
-  transform: translate(-50%, -35%);
-}
-.word-image4 img {
-  width: 25vw;
-  max-width: 250px; /* 視需求限制最大寬度 */
-  height: auto;
-}
-.word-image5 {
-  position: absolute;
-  top: 68.1%;
-  left: 47.6%;
-  transform: translate(-50%, -35%);
-}
-.word-image5 img {
-  width: 20.9vw;
-  max-width: 209px; /* 視需求限制最大寬度 */
-  height: auto;
-}
-.black-button0 {
-  position: absolute;
-  top: 59%;     /* 和 word-image3 一樣的位置 */
-  left: 41.5%;
-  transform: translate(-50%, 80px); /* 位於圖片下方 80px，可依需求調整 */
-  width: 60px;
-  height: 60px;
-  background-color: transparent;
-  color: transparent;
-  font-size: 16px;
-  text-align: center;
-  line-height: 60px; /* 讓文字垂直置中 */
-  border-radius: 8px; /* 方形但有點圓角，想要完全方形可改 0 */
-  cursor: pointer;
-}
-.black-button1 {
-  position: absolute;
-  top: 59%;     /* 和 word-image3 一樣的位置 */
-  left: 45.5%;
-  transform: translate(-50%, 80px); /* 位於圖片下方 80px，可依需求調整 */
-  width: 60px;
-  height: 60px;
-  background-color: transparent;
-  color: transparent;
-  font-size: 16px;
-  text-align: center;
-  line-height: 60px; /* 讓文字垂直置中 */
-  border-radius: 8px; /* 方形但有點圓角，想要完全方形可改 0 */
-  cursor: pointer;
-}
-.black-button2 {
-  position: absolute;
-  top: 59%;     /* 和 word-image3 一樣的位置 */
-  left: 49.5%;
-  transform: translate(-50%, 80px); /* 位於圖片下方 80px，可依需求調整 */
-  width: 60px;
-  height: 60px;
-  background-color: transparent;
-  color: transparent;
-  font-size: 16px;
-  text-align: center;
-  line-height: 60px; /* 讓文字垂直置中 */
-  border-radius: 8px; /* 方形但有點圓角，想要完全方形可改 0 */
-  cursor: pointer;
-}
-.black-button3 {
-  position: absolute;
-  top: 59%;     /* 和 word-image3 一樣的位置 */
-  left: 53.5%;
-  transform: translate(-50%, 80px); /* 位於圖片下方 80px，可依需求調整 */
-  width: 60px;
-  height: 60px;
-  background-color: transparent;
-  color: transparent;
-  font-size: 16px;
-  text-align: center;
-  line-height: 60px; /* 讓文字垂直置中 */
-  border-radius: 8px; /* 方形但有點圓角，想要完全方形可改 0 */
-  cursor: pointer;
-}
-.black-button4 {
-  position: absolute;
-  top: 59%;     /* 和 word-image3 一樣的位置 */
-  left: 57.5%;
-  transform: translate(-50%, 80px); /* 位於圖片下方 80px，可依需求調整 */
-  width: 60px;
-  height: 60px;
-  background-color: transparent;
-  color: transparent;
-  font-size: 16px;
-  text-align: center;
-  line-height: 60px; /* 讓文字垂直置中 */
-  border-radius: 8px; /* 方形但有點圓角，想要完全方形可改 0 */
-  cursor: pointer;
-}
-.center-logo-1200 {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -60%); /* 原本 -50%，改成 -60% 就會往上移 */
-}
-.center-logo-1200 img {
-  width: 80vw;
-  max-width: 800px; /* 視需求限制最大寬度 */
-  height: auto;
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.35); /* 柔和陰影 */
-  border-radius: 50px; /* 導角，讓白邊不那麼突兀 */
-}
-/* 在寬度70%、高度70%位置的圖 */
-.word-image-1200 {
-  position: absolute;
-  top: 10%;
-  left: 5%;
-  transform: translate(-50%, -25%);
-}
-.word-image-1200 img {
-  width: 12vw;  /* 可依需求調整大小 */
-  height: auto;
-}
-/* 在寬度70%、高度80%位置的圖 */
-.word-image2-1200 {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -63%);
-}
-.word-image2-1200 img {
-  width: 80vw;
-  max-width: 800px; /* 視需求限制最大寬度 */
-  height: auto;
-}
-.word-image3-1200 {
-  position: absolute;
-  top: 73%;
-  left: 50%;
-  transform: translate(-50%, -35%);
-}
-.word-image3-1200 img {
-  width: 20vw;
-  max-width: 200px; /* 視需求限制最大寬度 */
-  height: auto;
-}
-.word-image4-1200 {
-  position: absolute;
-  top: 68.3%;
-  left: 48.6%;
-  transform: translate(-50%, -35%);
-}
-.word-image4-1200 img {
-  width: 20vw;
-  max-width: 200px; /* 視需求限制最大寬度 */
-  height: auto;
-}
-.word-image5-1200 {
-  position: absolute;
-  top: 69.2%;
-  left: 47.1%;
-  transform: translate(-50%, -35%);
-}
-.word-image5-1200 img {
-  width: 16.9vw;
-  max-width: 169px; /* 視需求限制最大寬度 */
-  height: auto;
-}
-.black-button0-1200 {
-  position: absolute;
-  top: 59%;     /* 和 word-image3 一樣的位置 */
-  left: 41.5%;
-  transform: translate(-50%, 80px); /* 位於圖片下方 80px，可依需求調整 */
-  width: 60px;
-  height: 60px;
-  background-color: transparent;
-  color: transparent;
-  font-size: 16px;
-  text-align: center;
-  line-height: 60px; /* 讓文字垂直置中 */
-  border-radius: 8px; /* 方形但有點圓角，想要完全方形可改 0 */
-  cursor: pointer;
-}
-.black-button1-1200 {
-  position: absolute;
-  top: 59%;     /* 和 word-image3 一樣的位置 */
-  left: 45.5%;
-  transform: translate(-50%, 80px); /* 位於圖片下方 80px，可依需求調整 */
-  width: 60px;
-  height: 60px;
-  background-color: transparent;
-  color: transparent;
-  font-size: 16px;
-  text-align: center;
-  line-height: 60px; /* 讓文字垂直置中 */
-  border-radius: 8px; /* 方形但有點圓角，想要完全方形可改 0 */
-  cursor: pointer;
-}
-.black-button2-1200 {
-  position: absolute;
-  top: 59%;     /* 和 word-image3 一樣的位置 */
-  left: 49.5%;
-  transform: translate(-50%, 80px); /* 位於圖片下方 80px，可依需求調整 */
-  width: 60px;
-  height: 60px;
-  background-color: transparent;
-  color: transparent;
-  font-size: 16px;
-  text-align: center;
-  line-height: 60px; /* 讓文字垂直置中 */
-  border-radius: 8px; /* 方形但有點圓角，想要完全方形可改 0 */
-  cursor: pointer;
-}
-.black-button3-1200 {
-  position: absolute;
-  top: 59%;     /* 和 word-image3 一樣的位置 */
-  left: 53.5%;
-  transform: translate(-50%, 80px); /* 位於圖片下方 80px，可依需求調整 */
-  width: 60px;
-  height: 60px;
-  background-color: transparent;
-  color: transparent;
-  font-size: 16px;
-  text-align: center;
-  line-height: 60px; /* 讓文字垂直置中 */
-  border-radius: 8px; /* 方形但有點圓角，想要完全方形可改 0 */
-  cursor: pointer;
-}
-.black-button4-1200 {
-  position: absolute;
-  top: 59%;     /* 和 word-image3 一樣的位置 */
-  left: 58.5%;
-  transform: translate(-50%, 80px); /* 位於圖片下方 80px，可依需求調整 */
-  width: 60px;
-  height: 60px;
-  background-color: transparent;
-  color: transparent;
-  font-size: 16px;
-  text-align: center;
-  line-height: 60px; /* 讓文字垂直置中 */
-  border-radius: 8px; /* 方形但有點圓角，想要完全方形可改 0 */
-  cursor: pointer;
+  .about-content {
+    padding: 20px 24px;   /* ✅ 內距縮小 */
+    width: 90%;           /* ✅ 小螢幕時靠百分比 */
+    max-width: 500px;     /* ✅ 限制不要超過 500px */
+    min-width: auto;      /* ✅ 移除下限，避免太寬 */
+    font-size: clamp(12px, 3.5vw, 16px); /* ✅ 字體自適應 */
+    border-radius: 30px;  /* ✅ 導角縮小 */
+  }
 }
 </style>
 
 <script>
 export default {
-  name: 'PageSet',
+  name: 'PageContact',
   data () {
     return {
-      no1: true,
-      no2: false,
-      no3: false
     }
   },
   methods: {
-    onBlackButtonClick (val) {
-      this.no1 = val === 1
-      this.no2 = val === 2
-      this.no3 = val === 3
-    }
   },
   mounted () {
   }
